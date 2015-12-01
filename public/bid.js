@@ -13,7 +13,10 @@ $(function(){
       crossDomain : true,
       data: {
           // callname:'FindPopularItems',
-          QueryKeywords : 'dog',
+          appid: "string",
+          QueryKeywords : "Harry Potter Children's Books",
+          MaxEntries: 20,
+          // PageNumber: 20,
           version:517,
           siteid:0,
           responseencoding: 'JSON'
@@ -21,6 +24,7 @@ $(function(){
       },
       success: function(data, success, xhr){
         console.log("data is " +data);
+        console.log(data)
       },
       error: function(xhr, data, error){
         console.log("error is "+error);
