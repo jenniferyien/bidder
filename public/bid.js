@@ -6,12 +6,13 @@ $(function(){
 
     $.ajax({
 
-      url: 'http://open.api.ebay.com/shopping?callname=FindProducts',
+      url: 'http://open.api.ebay.com/shopping?callname=FindPopularItems',
       method: 'GET',
       dataType: "jsonp",
       jsonp: "callbackname",
       crossDomain : true,
       data: {
+<<<<<<< HEAD
           // callname:'FindPopularItems',
           appid: "string",
           QueryKeywords : "Harry Potter Children's Books",
@@ -23,11 +24,12 @@ $(function(){
 
       },
       success: function(data, success, xhr){
+<<<<<<< HEAD
         console.log("data is " +data);
         console.log(data)
       },
       error: function(xhr, data, error){
-        console.log("error is "+error);
+        console.log("error is", error);
       }
 
     });
