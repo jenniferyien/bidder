@@ -5,15 +5,19 @@ $(function(){
     event.preventDefault();
 
     $.ajax({
-      url: "http://open.api.ebay.com/shopping?callname=FindPopularItems&responseencoding=XML&appid=Nonec795f-fb4b-4bcf-89a8-358c2f1d592&siteid=0&QueryKeywords=dog&version=713",
+
+      url: 'http://open.api.ebay.com/shopping?callname=FindProducts',
       method: 'GET',
-      dataType: "script",
+      dataType: "jsonp",
+      jsonp: "callbackname",
+      crossDomain : true,
       data: {
           // callname:'FindPopularItems',
-          // appid: "Nonec795f-fb4b-4bcf-89a8-358c2f1d592",
-          // version:517,
-          // siteid:0,
-          responseencoding:NV
+          QueryKeywords : 'dog',
+          version:517,
+          siteid:0,
+          responseencoding: 'JSON'
+
       },
       success: function(data, success, xhr){
         console.log("data is " +data);
