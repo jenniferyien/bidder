@@ -5,15 +5,17 @@ $(function(){
     event.preventDefault();
 
     $.ajax({
-      url: 'https://open.api.ebay.com/shopping?',
+      url: 'http://open.api.ebay.com/shopping?callname=FindProducts',
       method: 'GET',
-      dataType: "json",
+      dataType: "jsonp",
+      jsonp: "callbackname",
+      crossDomain : true,
       data: {
-          callname:'FindPopularItems',
-          appid: ENV["EBAY_ID"],
+          // callname:'FindPopularItems',
+          QueryKeywords : 'dog',
           version:517,
           siteid:0,
-          responseencoding:JSON
+          responseencoding: 'JSON'
       },
       success: function(data, success, xhr){
         console.log("data is " +data);
