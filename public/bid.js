@@ -31,6 +31,7 @@ $(function(){
     var username = $("#name").val();
     var userEmail = $("#email").val();
     var userPassword = $("#password").val();
+
     //created hash for ajax call
     var hash = {name: username, email: userEmail, password: userPassword};
     $.ajax({
