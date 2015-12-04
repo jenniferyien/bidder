@@ -12,10 +12,9 @@ $(function(){
       jsonp: "callbackname",
       crossDomain : true,
       data: {
-<<<<<<< HEAD
           // callname:'FindPopularItems',
-          appid: "string",
-          QueryKeywords : "Harry Potter Children's Books",
+          appid: "Nonec795f-fb4b-4bcf-89a8-358c2f1d592",
+          QueryKeywords : "Harry Potter",
           MaxEntries: 20,
           // PageNumber: 20,
           version:517,
@@ -24,9 +23,15 @@ $(function(){
 
       },
       success: function(data, success, xhr){
-<<<<<<< HEAD
-        console.log("data is " +data);
-        console.log(data)
+        // console.log(data);
+        // console.log(data.ItemArray.Item);
+        var items = data.ItemArray.Item;
+        items.forEach(function(item){
+          // console.log(item.Title);
+          var product = $("<li>");
+          product.text(item.Title);
+          product.appendTo($("#bidItems"));
+        });
       },
       error: function(xhr, data, error){
         console.log("error is", error);
