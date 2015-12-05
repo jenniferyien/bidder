@@ -3,9 +3,10 @@ $(function(){
 
   $("#submit").click(function(event){
     event.preventDefault();
-
+    $("#bidItems").empty();
+    var searchResult = $('#search').val();
+    console.log(searchResult)
     $.ajax({
-
       url: 'http://open.api.ebay.com/shopping?callname=FindPopularItems',
       method: 'GET',
       dataType: "jsonp",
@@ -13,8 +14,8 @@ $(function(){
       crossDomain : true,
       data: {
           // callname:'FindPopularItems',
-          appid: "Nonec795f-fb4b-4bcf-89a8-358c2f1d592",
-          QueryKeywords : "Harry Potter",
+          appid: "string",
+          QueryKeywords : searchResult,
           MaxEntries: 20,
           // PageNumber: 20,
           version:517,
@@ -24,12 +25,25 @@ $(function(){
       },
       success: function(data, success, xhr){
         // console.log(data);
-        // console.log(data.ItemArray.Item);
+        console.log(data.ItemArray.Item);
         var items = data.ItemArray.Item;
         items.forEach(function(item){
           // console.log(item.Title);
           var product = $("<li>");
-          product.text(item.Title);
+          var itemInfo = $("<ul>")
+          itemInfo.appendTo(product)
+          var title = $("<li>")
+          title.text(item.Title);
+          title.appendTo(itemInfo);
+          var price = $('<li>');
+          price.text("$" + item.ConvertedCurrentPrice.Value)
+          price.appendTo(itemInfo);
+          var bidCount = $("<li>");
+          bidCount.text("Bid Count " + item.BidCount);
+          bidCount.appendTo(itemInfo);
+          var endTime = $("<li>");
+          endTime.text(item.EndTime);
+          endTime.appendTo(itemInfo);
           product.appendTo($("#bidItems"));
         });
       },
