@@ -1,5 +1,5 @@
 $(function(){
-  // var socket = io();
+  var socket = io();
 
   $("#submit").click(function(event){
     event.preventDefault();
@@ -72,10 +72,13 @@ $(function(){
         console.log("error is ", error);
       },
     });
+  });
 
-
+  $("#logging_in").click(function(event){
+    event.preventDefault();
+    var email = $("#user_email").val();
+    var password = $("#user_password").val();
+    console.log(email, password);
   })
-
-
 
 }); //closing function
