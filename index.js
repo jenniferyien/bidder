@@ -14,11 +14,16 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 //mongo
+var currentUser=[]
+
 client.connect('mongodb://localhost:27017/bidder', function(error, db){
   if (error) {console.log("Coundn't connect to database")}
   app.get('/users', function(req, res){
     db.collection('user').find().toArray(function(error, users){
       res.send(users);
+      users.forEach(function(user){
+        currentUser.push(user)
+      })
     })
   }); //get user list for index /show
 
@@ -30,6 +35,20 @@ client.connect('mongodb://localhost:27017/bidder', function(error, db){
 
 });
 
+io.on('connection', function(socket){
+  socket.on("login", function(user){
+    var valid = false
+    var currentValidUser = ''
+    for(i=0; i < currentUser.length-1; i++){
+      if(currentUser[i].email == user.username && currentUser[i].password == user.userpassword){
+        currentValidUser = currentUser[i].name
+        valid = true
+      }
+    }
+    socket.emit('valid', {user: currentValidUser})
+  }); //socket authorize
+
+}); //io
 
 
 app.get('/', function(req, res){

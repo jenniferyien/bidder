@@ -1,5 +1,15 @@
 $(function(){
   var socket = io();
+  $.ajax({
+    url: '/users',
+    method: 'GET',
+    success: function(data, status, xhr){
+      console.log("success")
+    },
+    error: function(xhr, status, error){
+      console.log("error is ", error);
+    },
+  });
 
   $("#submit").click(function(event){
     event.preventDefault();
@@ -78,7 +88,11 @@ $(function(){
     event.preventDefault();
     var email = $("#user_email").val();
     var password = $("#user_password").val();
-    console.log(email, password);
+    socket.emit('login', {username: email, userpassword: password})
+  })
+
+  socket.on('valid', function(user){
+    $('#loggedIn').text(user.user + " is logged in.")
   })
 
 }); //closing function
