@@ -1,6 +1,7 @@
 $(function(){
   var socket = io();
   $("#searching").hide();
+  $('#logging_out').hide();
 
   $.ajax({
     url: '/users',
@@ -85,9 +86,11 @@ $(function(){
         console.log("error is ", error);
       },
     });
+    socket.emit('login', {username: userEmail, userpassword: userPassword})
     $("#searching").show();
     $("#register").hide();
     $("#login").hide();
+    $('#logging_out').show();
   });
 
   $("#logging_in").click(function(event){
@@ -102,6 +105,18 @@ $(function(){
     $("#searching").show();
     $("#register").hide();
     $("#login").hide();
+    $('#logging_out').show();
   });
+
+  $('#logging_out').click(function(event){
+    event.preventDefault();
+    socket.emit('disconnect');
+    $("#searching").hide();
+    $("#register").show();
+    $("#login").show();
+    $('#logging_out').hide();
+    $('#loggedIn').text('');
+  })
+
 
 }); //closing function

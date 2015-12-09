@@ -47,7 +47,9 @@ io.on('connection', function(socket){
     }
     socket.emit('valid', {user: currentValidUser})
   }); //socket authorize
-
+  socket.on('disconnect', function(){
+      console.log('disconnected');
+    });
 }); //io
 
 
