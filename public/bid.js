@@ -86,11 +86,14 @@ $(function(){
         console.log("error is ", error);
       },
     });
-    socket.emit('login', {username: userEmail, userpassword: userPassword})
+    $("#name").val('');
+    $("#email").val('');
+    $("#password").val('');
     $("#searching").show();
     $("#register").hide();
     $("#login").hide();
     $('#logging_out').show();
+    $("#loggedIn").text(username + " is logged in.");
   });
 
   $("#logging_in").click(function(event){
