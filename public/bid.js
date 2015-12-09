@@ -1,5 +1,7 @@
 $(function(){
   var socket = io();
+  $("#searching").hide();
+
   $.ajax({
     url: '/users',
     method: 'GET',
@@ -69,6 +71,7 @@ $(function(){
     var userEmail = $("#email").val();
     var userPassword = $("#password").val();
 
+
     //created hash for ajax call
     var hash = {name: username, email: userEmail, password: userPassword};
     $.ajax({
@@ -82,6 +85,9 @@ $(function(){
         console.log("error is ", error);
       },
     });
+    $("#searching").show();
+    $("#register").hide();
+    $("#login").hide();
   });
 
   $("#logging_in").click(function(event){
@@ -93,6 +99,9 @@ $(function(){
 
   socket.on('valid', function(user){
     $('#loggedIn').text(user.user + " is logged in.")
-  })
+    $("#searching").show();
+    $("#register").hide();
+    $("#login").hide();
+  });
 
 }); //closing function
