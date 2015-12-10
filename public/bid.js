@@ -1,8 +1,12 @@
 $(function(){
+  //linking socket to emit information to node backend
   var socket = io();
+
+  //single page app (initial hiding logout and search form)
   $("#searching").hide();
   $('#logging_out').hide();
 
+  //ajax call to load backend array of users
   $.ajax({
     url: '/users',
     method: 'GET',
@@ -12,13 +16,15 @@ $(function(){
     error: function(xhr, status, error){
       console.log("error is ", error);
     },
-  });
+  }); //ajax
 
+  //initialize search
   $("#submit").click(function(event){
     event.preventDefault();
     $("#bidItems").empty();
     var searchResult = $('#search').val();
     console.log(searchResult)
+    //sending ajax call to ebay api
     $.ajax({
       url: 'http://open.api.ebay.com/shopping?callname=FindPopularItems',
       method: 'GET',
@@ -36,6 +42,7 @@ $(function(){
           responseencoding: 'JSON'
 
       },
+      //grabbing success data and appending it to the dom
       success: function(data, success, xhr){
         // console.log(data);
         console.log(data.ItemArray.Item);
