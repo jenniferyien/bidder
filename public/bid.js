@@ -73,8 +73,10 @@ $(function(){
     });
   });
 
+  //register click
   $("#registering").click(function(event){
     event.preventDefault();
+    //grabbing values from form
     var username = $("#name").val();
     var userEmail = $("#email").val();
     var userPassword = $("#password").val();
@@ -82,6 +84,7 @@ $(function(){
 
     //created hash for ajax call
     var hash = {name: username, email: userEmail, password: userPassword};
+    //sending to route set for mongo database in backend
     $.ajax({
       url: '/users/create',
       method: 'POST',
@@ -93,13 +96,17 @@ $(function(){
         console.log("error is ", error);
       },
     });
+    //clearing values for the form
     $("#name").val('');
     $("#email").val('');
     $("#password").val('');
+    //allowing search after login
     $("#searching").show();
     $("#register").hide();
     $("#login").hide();
+    //allowing logout option after login
     $('#logging_out').show();
+    //indicating who is logged in
     $("#loggedIn").text(username + " is logged in.");
   });
 
