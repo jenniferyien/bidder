@@ -110,13 +110,15 @@ $(function(){
     $("#loggedIn").text(username + " is logged in.");
   });
 
+  //login click grabbing user email and password
   $("#logging_in").click(function(event){
     event.preventDefault();
     var email = $("#user_email").val();
     var password = $("#user_password").val();
+    //login email and password is passed to the backend for check
     socket.emit('login', {username: email, userpassword: password})
   })
-
+  //if user email and password is valid, name would display and search bar would reveal
   socket.on('valid', function(user){
     $('#loggedIn').text(user.user + " is logged in.")
     $("#searching").show();
@@ -124,7 +126,7 @@ $(function(){
     $("#login").hide();
     $('#logging_out').show();
   });
-
+  //if use clicks logout, there will be an emit to disconnect user from server
   $('#logging_out').click(function(event){
     event.preventDefault();
     socket.emit('disconnect');
