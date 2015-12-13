@@ -1,7 +1,10 @@
+//linking express
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
+
+//linking mongoDB
 var mongo = require('mongodb');
 var client = mongo.MongoClient;
 
@@ -13,11 +16,12 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'));
 
-//mongo
+//listing of currentUsers that is already within the database
 var currentUser=[]
-
+//mongo database connection
 client.connect('mongodb://localhost:27017/bidder', function(error, db){
   if (error) {console.log("Coundn't connect to database")}
+  //getting all users information
   app.get('/users', function(req, res){
     db.collection('user').find().toArray(function(error, users){
       res.send(users);
@@ -26,7 +30,7 @@ client.connect('mongodb://localhost:27017/bidder', function(error, db){
       })
     })
   }); //get user list for index /show
-
+  //posting new users into database
   app.post('/users/create', function(req, res){
     db.collection('user').insert(req.body, function(error){
       if (error) {res.send(error)}
