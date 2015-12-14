@@ -38,8 +38,9 @@ client.connect('mongodb://localhost:27017/bidder', function(error, db){
   }); //new and create
 
 });
-
+//grabbing information from client side
 io.on('connection', function(socket){
+  //login check
   socket.on("login", function(user){
     var valid = false
     var currentValidUser = ''
@@ -49,14 +50,16 @@ io.on('connection', function(socket){
         valid = true
       }
     }
+    //if user is valid
     socket.emit('valid', {user: currentValidUser})
   }); //socket authorize
+  //if user signs out of account
   socket.on('disconnect', function(){
       console.log('disconnected');
     });
 }); //io
 
-
+//showing index file
 app.get('/', function(req, res){
   res.sendfile('index.html')
 });
