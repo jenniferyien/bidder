@@ -49,9 +49,12 @@ $(function(){
         var items = data.ItemArray.Item;
         items.forEach(function(item){
           // console.log(item.Title);
-          var product = $("<li>");
           var itemInfo = $("<ul>")
-          itemInfo.appendTo(product)
+          var product = $("<li>");
+          itemInfo.appendTo(product);
+          var image = $("<img>");
+          image.attr("src", item.GalleryURL);
+          image.appendTo(itemInfo);
           var title = $("<li>")
           title.text(item.Title);
           title.appendTo(itemInfo);

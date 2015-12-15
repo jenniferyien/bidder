@@ -10,34 +10,52 @@
   <body>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="./bid.js"></script>
-    <h2>bidder</h2>
-    <div id='searching'>
-      <input type='text' id='search' placeholder="Search Item..."/>
-      <input type="submit" id ='submit' name="name" value="submit">
+
+    <header>
+      <div id='login'>
+        <h3>Login</h3>
+        <form>
+          <input type='text' id='user_email' placeholder="Email"><br>
+          <input type='text' id='user_password' placeholder="Password"><br>
+          <input type="submit" id='logging_in' value="Log In">
+        </form>
+      </div>
+      <div id='register'>
+        <h3>Register</h3>
+        <form>
+          <input type='text' id='name' placeholder="Name"><br>
+          <input type='text' id='email' placeholder="Email"><br>
+          <input type='text' id='password' placeholder="Password"><br>
+          <input type='submit' id='registering' value='Register' >
+        </form>
+      </div>
+      <div id='loggedIn'></div>
+      <input type="submit" id='logging_out' value='Log Out'>
+    </header>
+    <div>
+      <h2>bidder</h2>
+      <div id='searching'>
+        <input type='text' id='search' placeholder="Search Item..."/>
+        <input type="submit" id ='submit' name="name" value="submit">
+      </div>
+    </div>
+
+    <div>
       <ul id='bidItems'>
       </ul>
     </div>
 
-    <div id='login'>
-      <h3>Login</h3>
-      <form>
-        <input type='text' id='user_email' placeholder="Email"><br>
-        <input type='text' id='user_password' placeholder="Password"><br>
-        <input type="submit" id='logging_in' value="Log In">
-      </form>
-    </div>
-    <div id='loggedIn'></div>
-    <input type="submit" id='logging_out' value='Log Out'>
+    <footer>
+      <ul>
+        <li>About Us</li>
+        <li>Careers</li>
+        <li>Copyright</li>
+      </ul>
+    </footer>
 
-    <div id='register'>
-      <h3>Register</h3>
-      <form>
-        <input type='text' id='name' placeholder="Name"><br>
-        <input type='text' id='email' placeholder="Email"><br>
-        <input type='text' id='password' placeholder="Password"><br>
-        <input type='submit' id='registering' value='Register' >
-      </form>
-    </div>
+
+
+
 
   </body>
 </html>
