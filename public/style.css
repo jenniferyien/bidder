@@ -3,3 +3,10 @@ red #D10423
  turq #71B68C
  beige #EBD9AB
 maroon #410000 */
+
+header div {
+  float: left;
+}
+ #nav {
+   clear: both;
+ }
