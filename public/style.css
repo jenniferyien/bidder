@@ -7,6 +7,35 @@ maroon #410000 */
 header div {
   float: left;
 }
+header #logging_out {
+  float: right
+}
+header {
+  border: 1px dashed black;
+  height: 50px;
+}
  #nav {
    clear: both;
+   border: 1px dashed black;
+ }
+
+ #nav h2{
+   float: left;
+   margin: 0
+ }
+
+ #searching {
+   float: left;
+ }
+ #content {
+   clear: both;
+   border: 1px dashed black;
+ }
+ .item_info {
+   float: right;
+ }
+
+ footer {
+   clear: both;
+   border: 1px dashed black;
  }

@@ -55,16 +55,16 @@ $(function(){
           var image = $("<img>");
           image.attr("src", item.GalleryURL);
           image.appendTo(itemInfo);
-          var title = $("<li>")
+          var title = $("<li class='item_info'>")
           title.text(item.Title);
           title.appendTo(itemInfo);
-          var price = $('<li>');
+          var price = $("<li class='item_info'>");
           price.text("$" + item.ConvertedCurrentPrice.Value)
           price.appendTo(itemInfo);
-          var bidCount = $("<li>");
+          var bidCount = $("<li class='item_info'>");
           bidCount.text("Bid Count " + item.BidCount);
           bidCount.appendTo(itemInfo);
-          var endTime = $("<li>");
+          var endTime = $("<li class='item_info'>");
           endTime.text(item.EndTime);
           endTime.appendTo(itemInfo);
           product.appendTo($("#bidItems"));
