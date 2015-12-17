@@ -5,6 +5,20 @@ $(function(){
   //single page app (initial hiding logout and search form)
   $("#searching").hide();
   $('#logging_out').hide();
+  $('#loginForm').hide();
+  $('#registerForm').hide();
+
+  //login click to reveal form
+  $('#loginLink').click(function(e){
+    e.preventDefault();
+    $('#loginForm').show();
+  })
+
+  //register click to reveal from
+  $('#registerLink').click(function(e){
+    e.preventDefault();
+    $('#registerForm').show();
+  })
 
   //ajax call to load backend array of users
   $.ajax({
