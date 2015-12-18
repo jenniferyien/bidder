@@ -154,5 +154,14 @@ $(function(){
     $('#loggedIn').text('');
   })
 
+  $('#about_us').click(function(e){
+    e.preventDefault();
+    alert("about us page");
+  });
+
+  $('#careers').click(function(e){
+    e.preventDefault();
+    alert("careers page")
+  });
 
 }); //closing function
