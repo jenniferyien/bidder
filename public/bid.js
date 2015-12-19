@@ -154,11 +154,13 @@ $(function(){
     $('#loggedIn').text('');
   })
 
+  //click for about us link
   $('#about_us').click(function(e){
     e.preventDefault();
     alert("about us page");
   });
 
+  //click for careers link
   $('#careers').click(function(e){
     e.preventDefault();
     alert("careers page")
