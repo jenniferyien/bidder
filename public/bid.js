@@ -158,12 +158,16 @@ $(function(){
   $('#about_us').click(function(e){
     e.preventDefault();
     alert("about us page");
+
+    //remove all other content and replace with new information regarding about us
   });
 
   //click for careers link
   $('#careers').click(function(e){
     e.preventDefault();
     alert("careers page")
+
+    //remove all other content and replace with new information regarding career page
   });
 
 }); //closing function
