@@ -4,6 +4,14 @@ red #D10423
  beige #EBD9AB
 maroon #410000 */
 
+/*fonts */
+/*heading*/
+@import url(https://fonts.googleapis.com/css?family=Flamenco);
+/*paragraphs*/
+@import url(https://fonts.googleapis.com/css?family=Asap);
+
+
+
 header div {
   float: left;
 }
