@@ -37,6 +37,7 @@ header {
  #searching {
    float: left;
  }
+
  #content {
    clear: both;
    border: 1px dashed black;
@@ -48,4 +49,5 @@ header {
  footer {
    clear: both;
    border: 1px dashed black;
+   font-family: "Asap";
  }
