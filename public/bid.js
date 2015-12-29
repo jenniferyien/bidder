@@ -125,7 +125,7 @@ $(function(){
     $('#logging_out').show();
     //indicating who is logged in
     $("#loggedIn").text(username + " is logged in.");
-  });
+  }); //registering click
 
   //login click grabbing user email and password
   $("#logging_in").click(function(event){
@@ -134,7 +134,7 @@ $(function(){
     var password = $("#user_password").val();
     //login email and password is passed to the backend for check
     socket.emit('login', {username: email, userpassword: password})
-  })
+  });//logging in click
   //if user email and password is valid, name would display and search bar would reveal
   socket.on('valid', function(user){
     $('#loggedIn').text(user.user + " is logged in.")
@@ -142,7 +142,7 @@ $(function(){
     $("#register").hide();
     $("#login").hide();
     $('#logging_out').show();
-  });
+  }); //socket valid
   //if use clicks logout, there will be an emit to disconnect user from server
   $('#logging_out').click(function(event){
     event.preventDefault();
@@ -152,7 +152,7 @@ $(function(){
     $("#login").show();
     $('#logging_out').hide();
     $('#loggedIn').text('');
-  })
+  }); //logout click
 
   //click for about us link
   $('#about_us').click(function(e){
